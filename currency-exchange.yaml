@@ -5,18 +5,12 @@ spring:
       on-profile:
         - dev
   datasource:
-    driver-class-name: org.h2.Driver
-    password: ''
-    url: jdbc:h2:mem:currency_exchange;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS currency_exchange
-    username: sa
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-      settings:
-        web-allow-others: true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ${RDS_PASSWORD:tiger}
+    url: jdbc:mysql://${RDS_HOSTNAME:localhost}:${RDS_PORT:3306}/${RDS_DB_NAME:currency_exchange_db}
+    username: ${RDS_USERNAME:scoot}
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.MySQL57Dialect
     hibernate:
       ddl-auto: update
     properties:
@@ -27,7 +21,7 @@ spring:
     init:
       data-locations: classpath*:data/exchange-data.sql
       mode: always
-      platform: h2
+      platform: mysql
       schema-locations: classpath*:schema/exchange-schema.sql    
 
 ---
