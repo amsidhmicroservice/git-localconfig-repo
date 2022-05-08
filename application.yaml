@@ -1,0 +1,22 @@
+# Declaring all common properties across all microservices
+
+logging:
+  level:
+    com.amsidh.mvc: DEBUG
+    root: ERROR
+management:
+  endpoint:
+    httptrace:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  trace:
+    http:
+      enabled: true
+
+spring:
+  main:
+    banner-mode: 'off'
+  

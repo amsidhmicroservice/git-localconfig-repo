@@ -1,0 +1,44 @@
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - dev
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: FULL
+        errorDecoder:
+          - com.amsidh.mvc.client.CustomErrorDecoder
+      currency-exchange-client:
+        errorDecoder:
+          - com.amsidh.mvc.client.CustomErrorDecoder
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - qa
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: FULL
+        errorDecoder:
+          - com.amsidh.mvc.client.CustomErrorDecoder
+      currency-exchange-client:
+        errorDecoder:
+          - com.amsidh.mvc.client.CustomErrorDecoder
+
+---
+
