@@ -32,9 +32,9 @@ spring:
       type: RABBIT
 
   rabbitmq:
-    addresses: localhost:5672
-    username: guest
-    password: guest
+    addresses: ${RABBIT_MQ_HOST:localhost}:${RABBIT_MQ_PORT:5672}
+    username: ${RABBIT_MQ_USERNAME:guest}
+    password: ${RABBIT_MQ_PASSWORD:guest}
 
 # Configure Eureka Client URL
 eureka:
