@@ -20,13 +20,22 @@ management:
 spring:
   main:
     banner-mode: 'off'
+
   sleuth:
     sampler:
       probability: 1.0
+
+  zipkin:
+    rabbitmq:
+      queue: zipkin
+    sender:
+      type: RABBIT
+
   rabbitmq:
     addresses: localhost:5672
     username: guest
     password: guest
+
 # Configure Eureka Client URL
 eureka:
   client:
