@@ -1,9 +1,10 @@
 # Declaring all common properties across all microservices
+info:
+  app:
+    developer:
+      name: Amsidh Lokhande
+      emailId: amsidhmicroservice@gmail.com
 
-logging:
-  level:
-    com.amsidh.mvc: DEBUG
-    root: ERROR
 management:
   endpoint:
     httptrace:
@@ -19,4 +20,16 @@ management:
 spring:
   main:
     banner-mode: 'off'
+  sleuth:
+    sampler:
+      probability: 1.0
+  rabbitmq:
+    addresses: localhost:5672
+    username: guest
+    password: guest
+# Configure Eureka Client URL
+eureka:
+  client:
+    service-url:
+      - defaultZone: http://localhost:8761/eureka
   
