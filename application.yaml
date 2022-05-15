@@ -31,7 +31,7 @@ spring:
       type: RABBIT
 
   rabbitmq:
-    addresses: ${RABBIT_MQ_HOST:localhost}:${RABBIT_MQ_PORT:5672}
+    addresses: ${RABBIT_MQ_HOST:rabbitmq-service}:${RABBIT_MQ_PORT:5672}
     username: ${RABBIT_MQ_USERNAME:guest}
     password: ${RABBIT_MQ_PASSWORD:guest}
 
@@ -39,5 +39,5 @@ spring:
 eureka:
   client:
     service-url:
-      - defaultZone: http://${EUREKA_SERVICE_HOST:localhost}:8761/eureka
+      - defaultZone: http://${EUREKA_SERVICE_HOST:eureka-discovery-service}:8761/eureka
   
