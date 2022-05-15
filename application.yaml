@@ -21,6 +21,9 @@ spring:
   main:
     banner-mode: 'off'
 
+  config:
+    import: optional:configserver:http://${CONFIG_SERVICE_HOST:localhost}:8888
+
   sleuth:
     sampler:
       probability: 1.0
